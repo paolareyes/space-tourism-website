@@ -222,3 +222,16 @@ select{
 .fs-600 {
   line-height: 1.1;
 }
+
+.numbered-title{
+  font-family: var( --ff-sans-cond );
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 0.297rem;
+}
+
+.numbered-title span{
+  font-weight: 700;
+  opacity: 0.25;
+  margin-right: .5em;
+}
