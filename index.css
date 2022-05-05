@@ -48,9 +48,23 @@ picture {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
 /* set up the body */
 
 body{
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  background: hsl( var(--clr-dark) );
+  color: hsl( var(--clr-white) );
   line-height:  1.5;
   min-height: 100vh;
 }
