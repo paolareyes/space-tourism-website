@@ -239,3 +239,36 @@ select{
   opacity: 0.25;
   margin-right: .5em;
 }
+
+/* ------------------- */
+/* Compontents         */
+/* ------------------- */
+
+.large-button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 0 2em;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    text-decoration: none;
+    z-index:1;
+}
+
+.large-button::after {
+  content: '';
+  position: absolute;
+  background: hsl( var(--clr-white) / .15);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index:-1;
+  transition: opacity 1s ease-out, transform 1s ease-in-out;
+  opacity: 0;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
