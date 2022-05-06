@@ -63,7 +63,7 @@ p {
 body{
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
-  background: hsl( var(--clr-dark) );
+  background-color: hsl( var(--clr-darkblue) );
   color: hsl( var(--clr-white) );
   line-height:  1.5;
   min-height: 100vh;
@@ -312,4 +312,42 @@ select{
 
 .tab-list{
   --gap: 2.2rem;
+}
+
+.dot-indicators > * {
+  cursor: pointer;
+  border: 0;
+  background-color: hsl(var(--clr-white) / .17);
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+  background-color: hsl(var(--clr-white) / .5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+  background-color: hsl(var(--clr-white));
+}
+
+.btn-circle{
+  height: var(--btn-size, 1rem);
+  width: var(--btn-size, 1rem);
+  border-radius: 50%;
+}
+
+.number-indicators > * {
+  cursor: pointer;
+  border: 0;
+  background-color: hsl(var(--clr-darkblue));
+  border: 1px solid hsl(var(--clr-white) / .25);
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+  border: 1px solid hsl(var(--clr-white));
+}
+
+.number-indicators > [aria-selected="true"] {
+  color: hsl(var(--clr-darkblue));
+  background-color: hsl(var(--clr-white));
 }
