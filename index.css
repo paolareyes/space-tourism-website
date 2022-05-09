@@ -9,12 +9,12 @@
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.938rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -23,6 +23,28 @@
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
 }
+
+@media (min-width: 35em) {
+  :root {
+      /* font-sizes */
+      --fs-800: 5rem;
+      --fs-700: 2.5rem;
+      --fs-600: 1.5rem;
+      --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+      /* font-sizes */
+      --fs-800: 6.25rem;
+      --fs-700: 3.5rem;
+      --fs-600: 2rem;
+      --fs-500: 1.75rem;
+      --fs-400: 1.125rem;
+  }
+}
+
 
 /* ------------------------ */
 /* Reset                    */
@@ -67,6 +89,9 @@ body{
   color: hsl( var(--clr-white) );
   line-height:  1.5;
   min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* makes images easier to work with */
@@ -110,6 +135,10 @@ select{
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var( --flow-space, 1em );
 }
@@ -118,6 +147,38 @@ select{
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
+}
+
+.grid-container {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+  .grid-container{
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+
+  .home .grid-container {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
 }
 
 .sr-only {
@@ -241,18 +302,19 @@ select{
 }
 
 /* ------------------- */
-/* Compontents         */
+/* Components         */
 /* ------------------- */
 
 .large-button {
-    position: relative;
-    display: grid;
-    place-items: center;
-    padding: 0 2em;
-    border-radius: 50%;
-    aspect-ratio: 1;
-    text-decoration: none;
-    z-index:1;
+  font-size: 2rem;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-decoration: none;
+  z-index:1;
 }
 
 .large-button::after {
@@ -274,30 +336,30 @@ select{
 }
 
 .primary-navigation {
-    --gap: 8rem;
-    --underline-gap: 2.3em;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(81.5485px);
-    justify-content: center;
+  --gap: 8rem;
+  --underline-gap: 2.3em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(81.5485px);
+  justify-content: center;
 }
 
 .primary-navigation a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .primary-navigation a > span {
-    font-weight: 700;
-    margin-right: .5em;
+  font-weight: 700;
+  margin-right: .5em;
 }
 
 .underline-indicators > * {
-    cursor: pointer;
-    padding: var(--underline-gap, 1rem) 0;
-    border: 0;
-   border-bottom: .2rem solid hsl(var(--clr-white) / 0);
+  cursor: pointer;
+  padding: var(--underline-gap, 1rem) 0;
+  border: 0;
+  border-bottom: .2rem solid hsl(var(--clr-white) / 0);
 }
 
 .underline-indicators > *:hover,
@@ -307,7 +369,7 @@ select{
 
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"]{
-    border-color: hsl( var(--clr-white) / 1);
+  border-color: hsl( var(--clr-white) / 1);
 }
 
 .tab-list{
@@ -350,4 +412,32 @@ select{
 .number-indicators > [aria-selected="true"] {
   color: hsl(var(--clr-darkblue));
   background-color: hsl(var(--clr-white));
+}
+
+/* ----------------------------- */
+/* page specific background      */
+/* ----------------------------- */
+
+body {
+  background-position: bottom center;
+  background-size: cover;
+}
+
+/* home */
+
+.home {
+  background-image: url('./assets/home/background-home-mobile.jpg');
+}
+
+@media (min-width: 35em) {
+  .home{
+    background-position: center center;
+    background-image: url('./assets/home/background-home-tablet.jpg');
+  }
+}
+
+@media (min-width: 45em) {
+  .home{
+    background-image: url('./assets/home/background-home-desktop.jpg');
+  }
 }
