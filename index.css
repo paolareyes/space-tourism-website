@@ -14,7 +14,7 @@
   --fs-700: 1.5rem;
   --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 0.938rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -341,9 +341,16 @@ select{
   list-style: none;
   padding: 0;
   margin: 0;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(81.5485px);
+  background: hsl( var(--clr-dark) / 0.95);
   justify-content: center;
+  flex-direction: row;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background: hsl( var(--clr-white) / .04);
+    backdrop-filter: blur(5.097rem);
+  }
 }
 
 .primary-navigation a {
@@ -360,7 +367,26 @@ select{
   padding: var(--underline-gap, 1rem) 0;
   border: 0;
   border-bottom: .2rem solid hsl(var(--clr-white) / 0);
+  width: auto;
 }
+
+@media (max-width:35em) {
+  .primary-navigation {
+    --gap: 2rem;
+    --underline-gap: .5em;
+    position: fixed;
+    padding: min(20rem, 15vh) 0 0 8vw;
+    flex-direction: column;
+    inset: 0 0 0 20%;
+    z-index: 2;
+    justify-content: start;
+  }
+  .primary-navigation.underline-indicators > *{
+    border: 0;
+    border-right: .3rem solid hsl(var(--clr-white) / 0);
+  }
+}
+
 
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
