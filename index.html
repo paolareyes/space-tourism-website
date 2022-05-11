@@ -16,6 +16,7 @@
   <script type="text/javascript" src="index.js" defer></script>
 </head>
 <body class="home">
+  <a class="skip-to-content" href="#home">Skip to content</a>
   <!-- navigation -->
   <header class="flex primary-header">
       <div>
@@ -24,15 +25,15 @@
       <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
       <nav>
           <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
-              <li class="active"><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="index.html"><span class="md-hidden">00</span>Home</a>
-              <li><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="destination.html"><span class="md-hidden">01</span>Destination</a>
-              <li><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="crew.html"><span class="md-hidden">02</span>Crew</a>
-              <li><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="technology.html"><span class="md-hidden">03</span>Technology</a>
+              <li class="active"><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="index.html"><span aria-hidden="true" class="md-hidden">00</span>Home</a>
+              <li><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="destination.html"><span aria-hidden="true" class="md-hidden">01</span>Destination</a>
+              <li><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="crew.html"><span aria-hidden="true" class="md-hidden">02</span>Crew</a>
+              <li><a class="ff-sans-cond uppercase txt-white letter-spacing-3" href="technology.html"><span aria-hidden="true" class="md-hidden">03</span>Technology</a>
           </ul>
       </nav>
   </header>
 
-  <section class="grid-container" id="home">
+  <main class="grid-container" id="home">
     <div>
       <h1 class="uppercase ff-sans-cond fs-500 letter-spacing-1 txt-light">So, you want to travel to
       <span class="uppercase ff-serif fs-900 txt-white d-block" style="letter-spacing: 0">Space</span></h1>
@@ -43,6 +44,7 @@
     <div>
       <a href="#" class="large-button uppercase ff-serif txt-dark bg-white">Explore</a>
     </div>
-  </section>
+  </main>
+
 </body>
 </html>
