@@ -600,6 +600,17 @@ body {
   margin-top: 2.5rem;
 }
 
+@media (min-width: 35em) {
+  .numbered-title {
+    margin-top: 2rem;
+    place-self: start;
+  }
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
 @media (min-width: 45em) {
   .grid-container{
     text-align: left;
@@ -619,4 +630,5 @@ body {
     padding-bottom: max(6rem, 20vh);
     align-items: end;
   }
+
 }
