@@ -549,6 +549,25 @@ body {
   }
 }
 
+/* crew */
+
+.crew {
+  background-image: url('./assets/crew/background-crew-mobile.jpg');
+}
+
+@media (min-width: 35em) {
+  .crew{
+    background-position: center center;
+    background-image: url('./assets/crew/background-crew-tablet.jpg');
+  }
+}
+
+@media (min-width: 45em) {
+  .crew{
+    background-image: url('./assets/crew/background-crew-desktop.jpg');
+  }
+}
+
 /* ----------------------------- */
 /* Layout                        */
 /* ----------------------------- */
@@ -648,4 +667,30 @@ body {
   .grid-container--destination > img {
     max-width: 90%;
   }
+}
+
+/* crew layout */
+
+.grid-container--crew {
+  align-content: start;
+  --flow-space: 3rem;
+  grid-template-areas:
+      'title'
+      'image'
+      'dots'
+      'content';
+}
+
+.grid-container--crew > img {
+  grid-area: image;
+  max-width: 50%;
+  border-bottom: 1px solid hsl( var(--clr-white) / .1);
+}
+
+.grid-container--crew > .dot-indicators {
+  grid-area: dots;
+}
+
+.grid-container--crew > .crew-info {
+  grid-area: content;
 }
