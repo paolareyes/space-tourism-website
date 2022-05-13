@@ -697,6 +697,7 @@ body {
 
 @media (min-width: 35em) {
   .grid-container--crew {
+    justify-items: start;
     --flow-space: 3rem;
     padding-bottom: 0;
     grid-template-areas:
@@ -704,5 +705,17 @@ body {
         'content'
         'dots'
         'image';
+  }
+}
+
+@media (min-width: 45em) {
+  .grid-container--crew {
+    grid-template-areas:
+        '. title image .'
+        '. content image .'
+        '. dots image .';
+  }
+  .grid-container--crew > img {
+    max-width: 100%;
   }
 }
