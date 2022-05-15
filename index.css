@@ -673,7 +673,7 @@ body {
 
 .grid-container--crew {
   align-content: start;
-  --flow-space: 3rem;
+  --flow-space: 2rem;
   grid-template-areas:
       'title'
       'image'
@@ -695,10 +695,17 @@ body {
   grid-area: content;
 }
 
+.crew-info h2 {
+  opacity: .50;
+}
+
+.flow-space--sm {
+  --flow-space: .5rem;
+}
+
 @media (min-width: 35em) {
   .grid-container--crew {
-    justify-items: start;
-    --flow-space: 3rem;
+    align-content: end;
     padding-bottom: 0;
     grid-template-areas:
         'title'
@@ -710,6 +717,7 @@ body {
 
 @media (min-width: 45em) {
   .grid-container--crew {
+    justify-items: start;
     grid-template-areas:
         '. title image .'
         '. content image .'
@@ -717,5 +725,6 @@ body {
   }
   .grid-container--crew > img {
     max-width: 100%;
+    align-self: end;
   }
 }
