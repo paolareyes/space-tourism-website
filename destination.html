@@ -35,9 +35,10 @@
 
   <main class="grid-container grid-container--destination flow" id="main">
     <h1 class="numbered-title"><span aria-hidden="true">01</span> Pick your destination</h1>
-
-    <img class="destination-img" src="./assets/destination/image-moon.png" alt="the moon">
-
+    <picture>
+      <source srcset="assets/destination/image-moon.webp" type="image/webp">
+      <img src="./assets/destination/image-moon.png" alt="the moon">
+    </picture>
     <div class="tab-list underline-indicators flex">
         <button aria-selected="true" class="uppercase fs-200 ff-sans-cond txt-light bg-transparent letter-spacing-2">Moon</button>
         <button aria-selected="false" class="uppercase fs-200 ff-sans-cond txt-light bg-transparent letter-spacing-2">Mars</button>
