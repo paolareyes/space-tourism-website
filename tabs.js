@@ -22,41 +22,44 @@ function changeTabFocus(e) {
   if (e.keyCode === keydownLeft || e.keyCode === keydownRight) {
     tabs[tabFocus].setAttribute("tabindex", -1);
     tabs[tabFocus].ariaSelected = "false";
-  }
 
-  if(e.keyCode === keydownRight) {
-    if(tabFocus < tabs.length - 1){
-      tabFocus++;
-    } else {
-      tabFocus = 0;
+    if (e.keyCode === keydownRight) {
+        tabFocus++;
+        if (tabFocus >= tabs.length) {
+            tabFocus = 0;
+        }
     }
-  }
 
-  if (e.keyCode === keydownLeft) {
-    if(tabFocus > 0){
-      tabFocus--;
-    } else {
-      tabFocus = tabs.length - 1;
+    if (e.keyCode === keydownLeft) {
+        tabFocus--;
+        if (tabFocus < 0) {
+            tabFocus = tabs.length - 1;
+        }
     }
+
   }
 
   tabs[tabFocus].setAttribute("tabindex", 0);
   tabs[tabFocus].focus();
   tabs[tabFocus].ariaSelected = "true";
-
-  selectPlanet(tabs[tabFocus].textContent.toLowerCase());
+  hideContent();
+  showContent(tabs[tabFocus].textContent.toLowerCase());
 }
 
 function changeTabPanel(e){
   currentTab.ariaSelected = "false";
   currentTab = e.target;
-  selectPlanet(e.target.textContent.toLowerCase());
+  hideContent();
+  showContent(e.target.textContent.toLowerCase());
   currentTab.ariaSelected = "true";
 }
 
-function selectPlanet(planet){
+function hideContent(){
   currentArticle.hidden = true;
   currentImage.hidden = true;
+}
+
+function showContent(planet){
   currentArticle = document.querySelector(`#${planet}`);
   currentImage = document.querySelector(`#${planet}-img`);
   currentArticle.hidden = false;
