@@ -99,7 +99,6 @@ body{
 img,
 picture {
   max-width: 100%;
-  display: block;
 }
 
 /* makes form elements easier to work with */

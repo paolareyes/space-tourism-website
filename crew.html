@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="index.css">
   <title>Frontend Mentor | Space tourism website</title>
   <script type="text/javascript" src="index.js" defer></script>
+  <script type="text/javascript" src="tabs.js" defer></script>
 </head>
 <body class="crew">
   <a class="skip-to-content" href="#home">Skip to content</a>
@@ -36,14 +37,14 @@
   <main class="grid-container grid-container--crew flow" id="crew">
     <h1 class="numbered-title"><span aria-hidden="true">02</span> Meet your crew</h1>
 
-    <div class="dot-indicators flex">
-        <button aria-selected="true" class="btn-circle"><span class="sr-only">Commander</span></button>
-        <button aria-selected="false" class="btn-circle"><span class="sr-only">Mission specialist</span></button>
-        <button aria-selected="false" class="btn-circle"><span class="sr-only">Pilot</span></button>
-        <button aria-selected="false" class="btn-circle"><span class="sr-only">Flight Engineer</span></button>
+    <div class="dot-indicators flex" role="tablist" aria-label="crew member list">
+        <button aria-selected="true" role="tab" aria-controls="commander" class="btn-circle" tabindex="0"><span class="sr-only">Commander</span></button>
+        <button aria-selected="false" role="tab" aria-controls="specialist" class="btn-circle" tabindex="-1"><span class="sr-only">Mission specialist</span></button>
+        <button aria-selected="false" role="tab" aria-controls="pilot" class="btn-circle" tabindex="-1"><span class="sr-only">Pilot</span></button>
+        <button aria-selected="false" role="tab" aria-controls="engineer" class="btn-circle" tabindex="-1"><span class="sr-only">Flight Engineer</span></button>
     </div>
-
-    <article class="crew-info flow">
+    <!-- commander article -->
+    <article class="crew-info flow" id="commander">
       <header class="flow flow-space--sm">
         <h2 class="fs-600 ff-serif uppercase txt-white">Commander</h2>
         <p class="fs-700 ff-serif uppercase">Douglas Hurley</p>
@@ -52,9 +53,50 @@
       and former NASA astronaut. He launched into space for the third time as
       commander of Crew Dragon Demo-2.</p>
     </article>
-    <picture>
+    <picture id="commander-img">
       <source srcset="assets/crew/image-douglas-hurley.webp" type="image/webp">
       <img class="crew-img" src="assets/crew/image-douglas-hurley.png" alt="the crew commander">
+    </picture>
+    <!-- specialist article -->
+    <article class="crew-info flow" id="specialist" hidden>
+      <header class="flow flow-space--sm">
+        <h2 class="fs-600 ff-serif uppercase txt-white">Mission Specialist</h2>
+        <p class="fs-700 ff-serif uppercase">Mark Shuttleworth</p>
+      </header>
+      <p class="txt-light">Mark Richard Shuttleworth is the founder and CEO of Canonical, the company
+        behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to
+        travel to space as a space tourist.</p>
+    </article>
+    <picture id="specialist-img" hidden>
+      <source srcset="assets/crew/image-mark-shuttleworth.webp" type="image/webp">
+      <img class="crew-img" src="assets/crew/image-mark-shuttleworth.png" alt="the crew commander">
+    </picture>
+    <!-- pilot article -->
+    <article class="crew-info flow" id="pilot" hidden>
+      <header class="flow flow-space--sm">
+        <h2 class="fs-600 ff-serif uppercase txt-white">Pilot</h2>
+        <p class="fs-700 ff-serif uppercase">Victor Glover</p>
+      </header>
+      <p class="txt-light">Pilot on the first operational flight of the SpaceX Crew Dragon to the
+        International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.
+        He was a crew member of Expedition 64, and served as a station systems flight engineer.</p>
+    </article>
+    <picture id="pilot-img" hidden>
+      <source srcset="assets/crew/image-victor-glover.webp" type="image/webp">
+      <img class="crew-img" src="assets/crew/image-victor-glover.png" alt="the crew commander">
+    </picture>
+    <!-- pilot article -->
+    <article class="crew-info flow" id="engineer" hidden>
+      <header class="flow flow-space--sm">
+        <h2 class="fs-600 ff-serif uppercase txt-white">Flight Engineer</h2>
+        <p class="fs-700 ff-serif uppercase">Anousheh Ansari</p>
+      </header>Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the
+      fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in
+      space.</p>
+    </article>
+    <picture id="engineer-img" hidden>
+      <source srcset="assets/crew/image-anousheh-ansari.webp" type="image/webp">
+      <img class="crew-img" src="assets/crew/image-anousheh-ansari.png" alt="the crew commander">
     </picture>
   </main>
 </body>
