@@ -1,6 +1,6 @@
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = tabList.querySelectorAll('[role="tab"]');
-const articles = document.getElementsByClassName("destination-info");
+const articles = document.getElementsByTagName("Article");
 const images = document.getElementsByTagName("picture");
 
 let tabFocus = 0;
@@ -43,14 +43,14 @@ function changeTabFocus(e) {
   tabs[tabFocus].focus();
   tabs[tabFocus].ariaSelected = "true";
   hideContent();
-  showContent(tabs[tabFocus].textContent.toLowerCase());
+  showContent(tabs[tabFocus].getAttribute('aria-controls'));
 }
 
 function changeTabPanel(e){
   currentTab.ariaSelected = "false";
   currentTab = e.target;
   hideContent();
-  showContent(e.target.textContent.toLowerCase());
+  showContent(e.target.getAttribute('aria-controls'));
   currentTab.ariaSelected = "true";
 }
 
@@ -59,9 +59,9 @@ function hideContent(){
   currentImage.hidden = true;
 }
 
-function showContent(planet){
-  currentArticle = document.querySelector(`#${planet}`);
-  currentImage = document.querySelector(`#${planet}-img`);
+function showContent(tab){
+  currentArticle = document.querySelector(`#${tab}`);
+  currentImage = document.querySelector(`#${tab}-img`);
   currentArticle.hidden = false;
   currentImage.hidden = false;
 }
